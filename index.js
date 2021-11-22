@@ -1,5 +1,5 @@
 const express = require('express');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 
 const app = express();
 
@@ -8,9 +8,9 @@ app.listen('4000', () => {
 });
 
 const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "admin",
+    host: '172.21.0.2',
+    user: "pram",
+    password: "pram",
     database: "dbpus"
 });
 
