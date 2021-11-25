@@ -23,6 +23,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    container_name: nodejs-app
     ports:
       - 4000:4000
     volumes:
@@ -33,6 +34,7 @@ services:
       - mysqldb
     networks:
       - backend
+    command: bash -c 'while !</dev/tcp/mysqldb/3306; do sleep 1; done; npm start'
 
 networks:
   backend:
